@@ -4,89 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
     tools:context=".MainActivity">
 
-    <View
-        android:id="@+id/topBackground"
-        android:layout_width="0dp"
-        android:layout_height="90dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="#314C7D"/>
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="0dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="48dp"
-        android:src="@drawable/logo_ice"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:src="@drawable/but_settings_white"
-        app:layout_constraintTop_toTopOf="@id/logo"
-        app:layout_constraintBottom_toBottomOf="@id/logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="20dp"
-        />
-
-    <TextView
-        android:id="@+id/countDiscount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Discounts (100)"
-        app:layout_constraintTop_toBottomOf="@id/topBackground"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="6dp"
-        android:layout_marginStart="6dp"/>
-
-    <TextView
-        android:id="@+id/selectCity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Moscow"
-        app:layout_constraintTop_toBottomOf="@id/topBackground"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="6dp"/>
 
     <FrameLayout
         android:id="@+id/content"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/selectCity"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="6dp"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
     </FrameLayout>
 
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="20dp"
-        android:orientation="horizontal"
-        android:background="#80ffffff">
+        <LinearLayout
+            android:id="@+id/switcherMain"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="20dp"
+            android:background="#80D8D9D6"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-        <ImageView
-            android:id="@+id/discounts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            <ImageView
+                android:id="@+id/sale"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:src="@drawable/ic_discount" />
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/gifts"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:src="@drawable/ic_gifts" />
+
+            <ImageView
+                android:id="@+id/events"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:src="@drawable/ic_events" />
+
+            <ImageView
+                android:id="@+id/promocodes"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:src="@drawable/ic_promocodes" />
+
+        </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

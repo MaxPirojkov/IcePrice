@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/picShopDetail"
+                android:layout_width="0dp"
+                android:layout_height="400dp"
+                android:layout_marginTop="70dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <com.makeramen.roundedimageview.RoundedImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="-4dp"
+                android:layout_marginEnd="-4dp"
+                android:background="@drawable/back_shop_title"
+                app:layout_constraintBottom_toBottomOf="@id/nameShop"
+                app:layout_constraintEnd_toEndOf="@id/nameShop"
+                app:layout_constraintStart_toStartOf="@id/nameShop"
+                app:layout_constraintTop_toTopOf="@id/nameShop" />
+
+
+            <TextView
+                android:id="@+id/nameShop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/indent_10"
+                android:layout_marginBottom="8dp"
+                tools:text="@tools:sample/lorem"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/picShopDetail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="20dp"/>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="@dimen/indent_10"
+                android:layout_marginEnd="20dp"
+                android:paddingBottom="20dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nameShop">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/icInfo"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/ic_information"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/infoTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="@string/detail_condions"
+                        app:layout_constraintBottom_toBottomOf="@id/icInfo"
+                        app:layout_constraintStart_toEndOf="@id/icInfo"
+                        app:layout_constraintTop_toTopOf="@id/icInfo" />
+
+                    <TextView
+                        android:id="@+id/descripInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="@dimen/indent_10"
+                        android:layout_marginEnd="20dp"
+                        android:maxLines="5"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/infoTitle"
+                        tools:text="@tools:sample/lorem/random" />
+
+                    <View
+                        android:id="@+id/lineOne"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginHorizontal="@dimen/indent_10"
+                        android:layout_marginTop="28dp"
+                        android:alpha="0.25"
+                        android:background="@color/black"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/descripInfo" />
+
+                    <ImageView
+                        android:id="@+id/iconShop"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/ic_building"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/lineOne" />
+
+                    <TextView
+                        android:id="@+id/titleShop"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/title_shop"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toBottomOf="@id/iconShop"
+                        app:layout_constraintStart_toEndOf="@id/iconShop"
+                        app:layout_constraintTop_toTopOf="@id/iconShop" />
+
+                    <TextView
+                        android:id="@+id/titleShopName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toBottomOf="@id/iconShop"
+                        app:layout_constraintStart_toEndOf="@id/titleShop"
+                        app:layout_constraintTop_toTopOf="@id/iconShop"
+                        tools:text="@tools:sample/lorem" />
+
+                    <View
+                        android:id="@+id/lineTwo"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginHorizontal="@dimen/indent_10"
+                        android:layout_marginTop="28dp"
+                        android:alpha="0.25"
+                        android:background="@color/black"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/titleShopName" />
+
+                    <ImageView
+                        android:id="@+id/iconMap"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/ic_map"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lineTwo" />
+
+                    <TextView
+                        android:id="@+id/titleAddressName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/indent_10"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toBottomOf="@id/iconMap"
+                        app:layout_constraintStart_toEndOf="@id/iconMap"
+                        app:layout_constraintTop_toTopOf="@id/iconMap"
+                        tools:text="@tools:sample/lorem" />
+
+                    <View
+                        android:id="@+id/lineThree"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginHorizontal="@dimen/indent_10"
+                        android:layout_marginTop="28dp"
+                        android:alpha="0.25"
+                        android:background="@color/black"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/titleAddressName" />
+
+                    <ImageView
+                        android:id="@+id/iconPhone"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/ic_phone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lineThree" />
+
+                    <TextView
+                        android:id="@+id/numberPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/indent_10"
+                        android:autoLink="phone"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toBottomOf="@id/iconPhone"
+                        app:layout_constraintStart_toEndOf="@id/iconPhone"
+                        app:layout_constraintTop_toTopOf="@id/iconPhone"
+                        tools:text="@tools:sample/lorem"
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <View
+        android:id="@+id/topBackground"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#314C7D"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nameTopDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Подробнее"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/topBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
