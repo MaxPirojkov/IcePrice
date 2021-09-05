@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".SettingsFragment"
-    android:background="#f0eef7">
+    android:background="#f0eef7"
+    tools:context=".SettingsFragment">
 
-    <View
+    <ImageView
         android:id="@+id/topBackground"
         android:layout_width="0dp"
         android:layout_height="70dp"
@@ -21,62 +21,235 @@
         android:layout_width="wrap_content"
         android:layout_height="22dp"
         android:layout_marginTop="28dp"
+        android:text="@string/settings_title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/large_text_dimen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/settings_title"
-        android:textColor="@color/black"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/titleLanguage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/topBackground"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="@dimen/indent_10"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="@dimen/indent_10"
         android:text="@string/language_title"
-        android:textSize="10sp"
-        />
+        android:textSize="@dimen/medium_text_dimen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBackground" />
 
-    <ImageView
-        android:id="@+id/backLang_switcher"
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/toggleButton"
-        app:layout_constraintStart_toStartOf="@id/toggleButton"
-        app:layout_constraintEnd_toEndOf="@id/toggleButton"
-        app:layout_constraintBottom_toBottomOf="@id/toggleButton"
+        android:layout_height="38dp"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginTop="@dimen/indent_10"
-        android:background="@drawable/rectangle_back_settings"
-        android:paddingTop="70dp"
-        />
+        android:layout_marginEnd="20dp"
+        app:cardCornerRadius="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleLanguage">
 
-    <com.google.android.material.button.MaterialButtonToggleGroup
-        android:id="@+id/toggleButton"
+        <RadioGroup
+            android:id="@+id/toggle"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/color_out_line_switcher_settings"
+            android:checkedButton="@+id/switchBut1"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/cardView"
+            app:layout_constraintStart_toStartOf="@id/cardView"
+            app:layout_constraintTop_toTopOf="@id/cardView">
+
+            <RadioButton
+                android:id="@+id/switchBut1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/background_switcher_widget_settings"
+                android:button="@null"
+                android:gravity="center"
+                android:text="@string/rus_lang"
+                android:textColor="@color/black" />
+
+            <RadioButton
+                android:id="@+id/switchBut2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/background_switcher_widget_settings"
+                android:button="@null"
+                android:gravity="center"
+                android:text="@string/eng_lang"
+                android:textColor="@color/black" />
+        </RadioGroup>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/titleLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/titleLanguage"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/title_location"
+        android:textSize="@dimen/medium_text_dimen"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Русский"
-            style="?attr/materialButtonOutlinedStyle"
-            />
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="English"
-            style="?attr/materialButtonOutlinedStyle"
-            />
+        app:layout_constraintTop_toBottomOf="@id/cardView" />
 
-    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewLoc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="@dimen/indent_10"
+        android:layout_marginEnd="20dp"
+        app:cardCornerRadius="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleLocation">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constLoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/titleCountrySpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:text="@string/title_country"
+                android:textColor="@color/black"
+                android:textSize="@dimen/large_text_dimen"
+                app:layout_constraintStart_toStartOf="@id/constLoc"
+                app:layout_constraintTop_toTopOf="@id/spinnerCountry" />
+
+            <Spinner
+                android:id="@+id/spinnerCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="6dp"
+                android:entries="@array/country"
+                android:gravity="end"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/constLoc" />
+
+            <View
+                android:id="@+id/lineOne"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginHorizontal="@dimen/indent_10"
+                android:layout_marginTop="8dp"
+                android:alpha="0.25"
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spinnerCountry" />
+
+            <TextView
+                android:id="@+id/titleCitySpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_city"
+                android:textColor="@color/black"
+                android:textSize="@dimen/large_text_dimen"
+                app:layout_constraintBottom_toBottomOf="@id/spinnerCity"
+                app:layout_constraintStart_toStartOf="@id/titleCountrySpinner"
+                app:layout_constraintTop_toTopOf="@id/spinnerCity" />
+
+            <Spinner
+                android:id="@+id/spinnerCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="@dimen/indent_10"
+                android:entries="@array/countryRussia"
+                android:gravity="end"
+                app:layout_constraintBottom_toBottomOf="@id/constLoc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lineOne" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/titleBuild"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/title_version"
+        android:textSize="@dimen/medium_text_dimen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardViewLoc" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewBuild"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="@dimen/indent_10"
+        android:layout_marginEnd="20dp"
+        app:cardCornerRadius="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleBuild">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constBuield"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/titleBuildNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="@dimen/indent_10"
+                android:layout_marginBottom="@dimen/indent_10"
+                android:text="@string/title_build"
+                android:textSize="@dimen/large_text_dimen"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/BuildNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/indent_10"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="@dimen/indent_10"
+                android:text="@string/build_number"
+                android:textSize="@dimen/large_text_dimen"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,5 +2,7 @@
 <resources>
     <dimen name="text_margin">16dp</dimen>
     <dimen name="indent_10">10dp</dimen>
+    <dimen name="large_text_dimen">16sp</dimen>
+    <dimen name="medium_text_dimen">12sp</dimen>
 
 </resources>

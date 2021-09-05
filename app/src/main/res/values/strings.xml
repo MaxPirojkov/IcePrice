@@ -13,4 +13,33 @@
     <string name="button_title_back" translatable="false">Назад</string>
     <string name="settings_title">Настройки</string>
     <string name="language_title">ЯЗЫК</string>
+    <string name="title_build">Билд</string>
+    <string name="build_number">1.0.0</string>
+    <string name="title_version">ВЕРСИЯ</string>
+    <string name="title_city">Город</string>
+    <string name="title_country">Страна</string>
+    <string name="title_location">РАСПОЛОЖЕНИЕ</string>
+    <string name="rus_lang">Русский</string>
+    <string name="eng_lang">English</string>
+
+    <string-array name="country">
+        <item>Россия</item>
+        <item>Казахстан</item>
+        <item>Кыргызстан</item>
+    </string-array>
+
+    <string-array name="countryRussia">
+        <item>Москва</item>
+        <item>Санкт-Петербург</item>
+    </string-array>
+
+    <string-array name="countryKazahstan">
+        <item>Нур-Султан</item>
+        <item>Алматы</item>
+    </string-array>
+
+    <string-array name="countryKirgizstan">
+        <item>Бишкек</item>
+    </string-array>
+
 </resources>

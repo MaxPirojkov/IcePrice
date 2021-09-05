@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/switcher_white_but" android:state_checked="true">
+    </item>
+    <item android:drawable="@drawable/switcher_gray_but" android:state_pressed="true" />
+</selector>
+
+
+
+
+
