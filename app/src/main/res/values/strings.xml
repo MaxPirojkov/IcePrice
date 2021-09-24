@@ -1,20 +1,20 @@
 <resources>
     <string name="app_name" translatable="false">IcePrice</string>
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
-    <string name="title_shop" translatable="false">Магазин:</string>
-    <string name="title_sale" translatable="false">Скидки</string>
+    <string name="title_shop">Магазин:</string>
+    <string name="title_sale">Скидки</string>
     <string name="city_moscow" translatable="false">Москва</string>
-    <string name="title_promocodes" translatable="false">Промокоды</string>
+    <string name="title_promocodes">Промокоды</string>
     <string name="title_gifts">Подарки</string>
     <string name="tittle_events">Мероприятия</string>
     <string name="text_button_qr_detail">Получить скидку</string>
     <string name="detail_condions">Условия</string>
-    <string name="title_top_details" translatable="false">Подробнее</string>
-    <string name="button_title_back" translatable="false">Назад</string>
+    <string name="title_top_details">Подробнее</string>
+    <string name="button_title_back">Назад</string>
     <string name="settings_title">Настройки</string>
     <string name="language_title">ЯЗЫК</string>
     <string name="title_build">Билд</string>
-    <string name="build_number">1.0.0</string>
+    <string name="build_number" translatable="false">1.0.0</string>
     <string name="title_version">ВЕРСИЯ</string>
     <string name="title_city">Город</string>
     <string name="title_country">Страна</string>

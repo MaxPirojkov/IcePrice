@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IcePrice</string>
+    <string name="eng_lang">Англисче</string>
+    <string name="rus_lang">Орусча</string>
+    <string name="title_country">Өлкө</string>
+    <string name="title_location">ЖАЙЫК</string>
+    <string name="title_city">Шаар</string>
+    <string name="title_version">ВЕРСИЯСЫ</string>
+    <string name="title_build">Издөө:</string>
+    <string name="language_title">ТИЛИ</string>
+    <string name="settings_title">Орнотуулар</string>
+    <string name="button_title_back">Артка</string>
+    <string name="title_top_details">Кененирээк</string>
+    <string name="detail_condions">Шарттары</string>
+    <string name="text_button_qr_detail">Арзандатууну алуу</string>
+    <string name="tittle_events">Иш-чаралар</string>
+    <string name="title_gifts">Белектер</string>
+    <string name="title_promocodes">Сунуштоо коду</string>
+    <string name="title_sale">Арзандатуулар</string>
+    <string name="title_shop">Дүкөн:</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="build_number" translatable="false">1.0.0</string>
+</resources>
