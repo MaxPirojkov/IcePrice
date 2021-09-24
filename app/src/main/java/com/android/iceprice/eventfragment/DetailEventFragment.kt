@@ -1,6 +1,5 @@
 package com.android.iceprice.giftfragment
 
-import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
@@ -11,15 +10,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.android.iceprice.ClickCallBackVisible
-import com.android.iceprice.ClickCallbackList
 import com.android.iceprice.R
 import com.android.iceprice.giftfragment.model.EventItem
 import com.android.iceprice.loadImage
 
 
 class DetailEventFragment : Fragment() {
-    private var butBack: LinearLayout? = null
+    private var backButEvent: LinearLayout? = null
 
     private var eventItem: EventItem? = null
 
@@ -55,7 +52,11 @@ class DetailEventFragment : Fragment() {
                 text.setText(Html.fromHtml("<br><p>Сайт не доступен</p>"));
             }
         }
-
+        backButEvent = view.findViewById(R.id.backToListEvent)
+        backButEvent?.setOnClickListener {
+            requireActivity().supportFragmentManager
+                .popBackStack()
+        }
     }
 
 

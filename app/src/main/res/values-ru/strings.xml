@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name" translatable="false">IcePrice</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="title_shop" translatable="false">Магазин:</string>
+    <string name="title_sale" translatable="false">Скидки</string>
+    <string name="city_moscow" translatable="false">Москва</string>
+    <string name="title_promocodes" translatable="false">Промокоды</string>
+    <string name="title_gifts">Подарки</string>
+    <string name="tittle_events">Мероприятия</string>
+    <string name="text_button_qr_detail">Получить скидку</string>
+    <string name="detail_condions">Условия</string>
+    <string name="title_top_details" translatable="false">Подробнее</string>
+    <string name="button_title_back" translatable="false">Назад</string>
+    <string name="settings_title">Настройки</string>
+    <string name="language_title">ЯЗЫК</string>
+    <string name="title_build">Билд</string>
+    <string name="build_number">1.0.0</string>
+    <string name="title_version">ВЕРСИЯ</string>
+    <string name="title_city">Город</string>
+    <string name="title_country">Страна</string>
+    <string name="title_location">РАСПОЛОЖЕНИЕ</string>
+    <string name="rus_lang">Русский</string>
+    <string name="eng_lang">English</string>
+
+    <string-array name="country">
+        <item>Россия</item>
+        <item>Казахстан</item>
+        <item>Кыргызстан</item>
+    </string-array>
+
+    <string-array name="countryRussia">
+        <item>Москва</item>
+        <item>Санкт-Петербург</item>
+    </string-array>
+
+    <string-array name="countryKazahstan">
+        <item>Нур-Султан</item>
+        <item>Алматы</item>
+    </string-array>
+
+    <string-array name="countryKirgizstan">
+        <item>Бишкек</item>
+    </string-array>
+
+</resources>

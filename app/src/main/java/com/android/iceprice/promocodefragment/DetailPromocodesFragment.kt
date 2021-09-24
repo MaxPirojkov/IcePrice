@@ -8,15 +8,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.android.iceprice.ClickCallBackVisible
 import com.android.iceprice.R
 import com.android.iceprice.loadImage
 import com.android.iceprice.promocodefragment.model.PromocodeItem
 
 class DetailPromocodesFragment : Fragment() {
     private var promocodesItem: PromocodeItem? = null
+    private var backButPromocode: LinearLayout? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +47,12 @@ class DetailPromocodesFragment : Fragment() {
             } else {
                 text.setText(Html.fromHtml("<br><p>Сайт не доступен</p>"));
             }
+        }
+
+        backButPromocode = view.findViewById(R.id.backToListPromocode)
+        backButPromocode?.setOnClickListener{
+            requireActivity().supportFragmentManager
+                .popBackStack()
         }
 
     }

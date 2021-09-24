@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.IcePrice" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.IcePrice" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#314C7D</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -15,9 +15,9 @@
 
     </style>
 
-    <style name="SplashScreenTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="SplashScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_screen_pic</item>
-
         <item name="android:statusBarColor">#314C7D</item>
+        <item name="windowNoTitle">true</item>
     </style>
 </resources>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.android.iceprice.R
 import com.android.iceprice.giftfragment.model.GiftItem
@@ -15,6 +16,7 @@ import com.android.iceprice.loadImage
 class DetailGiftFragment : Fragment() {
 
     private var giftItem: GiftItem? = null
+    private var backButGift: LinearLayout? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +43,12 @@ class DetailGiftFragment : Fragment() {
             view.findViewById<TextView>(R.id.titleShopName).setText(it.shop)
             view.findViewById<TextView>(R.id.titleAddressName).setText(it.address)
             view.findViewById<TextView>(R.id.numberPhone).setText(it.phone)
+        }
+
+        backButGift = view.findViewById(R.id.backToListGift)
+        backButGift?.setOnClickListener {
+            requireActivity().supportFragmentManager
+                .popBackStack()
         }
     }
 

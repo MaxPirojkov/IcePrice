@@ -1,14 +1,10 @@
-import com.android.iceprice.giftfragment.ApiFactoryEvent
-import com.android.iceprice.promocodefragment.ApiFactoryPromocodes
+import com.android.iceprice.ApiFactory
 import java.security.cert.X509Certificate
-import java.util.concurrent.TimeUnit
 import javax.net.ssl.SSLContext
 import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 import kotlinx.serialization.ExperimentalSerializationApi
-import kotlinx.serialization.json.Json
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
@@ -52,7 +48,7 @@ object NetworkModuleEvent {
     }
 
     @ExperimentalSerializationApi
-    val eventsApi: ApiFactoryEvent = retrofit.create()
+    val eventsApi: ApiFactory = retrofit.create()
 }
 
 

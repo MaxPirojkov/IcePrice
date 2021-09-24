@@ -1,18 +1,16 @@
 package com.android.iceprice.promocodefragment
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.android.iceprice.ClickCallBackVisible
-import com.android.iceprice.ClickCallbackList
 import com.android.iceprice.R
+import com.android.iceprice.SettingsFragment
 
 import com.android.iceprice.promocodefragment.model.PromocodeItem
 
@@ -20,6 +18,7 @@ class ListPromocodesFragment : Fragment() {
     private var list: List<PromocodeItem> = emptyList()
     private var adapter: PreviewPromocodesAdapter? = null
     private val viewModel = ListPromocodesViewModel()
+    private var butSetting: ImageView? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +48,14 @@ class ListPromocodesFragment : Fragment() {
             val count = view.findViewById<TextView>(R.id.countDiscountNumbPromo)
             count.setText("${list.size}")
         })
+        butSetting = view.findViewById(R.id.settingsButtonPromocodes)
+        butSetting?.setOnClickListener{
+            requireActivity().supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.content, SettingsFragment())
+                .addToBackStack(null)
+                .commit()
+        }
     }
 
 

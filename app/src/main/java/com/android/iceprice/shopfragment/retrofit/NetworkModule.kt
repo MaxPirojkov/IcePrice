@@ -1,13 +1,12 @@
 package com.android.iceprice.shopfragment.retrofit
 
-import com.android.iceprice.shopfragment.ApiFactory
+import com.android.iceprice.ApiFactory
 import java.security.cert.X509Certificate
 import java.util.concurrent.TimeUnit
 import javax.net.ssl.SSLContext
 import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 import kotlinx.serialization.ExperimentalSerializationApi
-import kotlinx.serialization.json.Json
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -17,22 +16,22 @@ import retrofit2.create
 object NetworkModule {
     private val baseUrl = "https://iceprice.app/"
 
-    private val json = Json {
-        prettyPrint = true
-        ignoreUnknownKeys = true
-    }
+//    private val json = Json {
+//        prettyPrint = true
+//        ignoreUnknownKeys = true
+//    }
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
-    private val client = OkHttpClient().newBuilder()
-        .connectTimeout(10, TimeUnit.SECONDS)
-        .readTimeout(10, TimeUnit.SECONDS)
-        .writeTimeout(10, TimeUnit.SECONDS)
-        .addInterceptor(loggingInterceptor)
-        .addNetworkInterceptor(loggingInterceptor)
-        .build()
+//    private val client = OkHttpClient().newBuilder()
+//        .connectTimeout(10, TimeUnit.SECONDS)
+//        .readTimeout(10, TimeUnit.SECONDS)
+//        .writeTimeout(10, TimeUnit.SECONDS)
+//        .addInterceptor(loggingInterceptor)
+//        .addNetworkInterceptor(loggingInterceptor)
+//        .build()
 
     private fun getUnsafeOkHttpClient(): OkHttpClient {
         val trustAllCerts = arrayOf<TrustManager>(object : X509TrustManager {
@@ -53,7 +52,13 @@ object NetworkModule {
 
         return OkHttpClient.Builder()
             .sslSocketFactory(sslSocketFactory, trustAllCerts[0] as X509TrustManager)
-            .hostnameVerifier { _, _ -> true }.build()
+            .hostnameVerifier { _, _ -> true }
+            .connectTimeout(10, TimeUnit.SECONDS)
+            .readTimeout(10, TimeUnit.SECONDS)
+            .writeTimeout(10, TimeUnit.SECONDS)
+            .addInterceptor(loggingInterceptor)
+            .addNetworkInterceptor(loggingInterceptor)
+            .build()
     }
 
 
@@ -71,7 +76,6 @@ object NetworkModule {
     @ExperimentalSerializationApi
     val shopsApi: ApiFactory = retrofit.create()
 }
-
 
 
 

@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name" translatable="false">IcePrice</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="title_shop" translatable="false">Shop:</string>
+    <string name="title_sale" translatable="false">Discounts</string>
+    <string name="city_moscow" translatable="false">Moscow</string>
+    <string name="title_promocodes" translatable="false">Promocodes</string>
+    <string name="title_gifts">Gifts</string>
+    <string name="tittle_events">Events</string>
+    <string name="text_button_qr_detail">Get discount</string>
+    <string name="detail_condions">Conditions</string>
+    <string name="title_top_details" translatable="false">Details</string>
+    <string name="button_title_back" translatable="false">Back</string>
+    <string name="settings_title">Settings</string>
+    <string name="language_title">LANGUAGE</string>
+    <string name="title_build">Build</string>
+    <string name="build_number">1.0.0</string>
+    <string name="title_version">VERSION</string>
+    <string name="title_city">City</string>
+    <string name="title_country">Country</string>
+    <string name="title_location">LOCATION</string>
+    <string name="rus_lang">Русский</string>
+    <string name="eng_lang">English</string>
+
+    <string-array name="country">
+        <item>Russia</item>
+        <item>Kazahstan</item>
+        <item>Kyrgyzstan</item>
+    </string-array>
+
+    <string-array name="countryRussia">
+        <item>Moscow</item>
+        <item>Saint-Petersburg</item>
+    </string-array>
+
+    <string-array name="countryKazahstan">
+        <item>Nur-Sultan</item>
+        <item>Almaty</item>
+    </string-array>
+
+    <string-array name="countryKirgizstan">
+        <item>Bishkek</item>
+    </string-array>
+
+</resources>

@@ -16,9 +16,6 @@ import com.android.iceprice.shopfragment.ListShopFragment
 class MainActivity : AppCompatActivity() {
     private var switchMain: LinearLayout? = null
 
-//    private val currentFragment: Fragment
-//        get() = supportFragmentManager.findFragmentById(R.id.content)!!
-
     private val fragmentListener = object : FragmentManager.FragmentLifecycleCallbacks() {
         override fun onFragmentViewCreated(
             fm: FragmentManager,
@@ -36,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         if (savedInstanceState == null) {
-            openFragment(SettingsFragment.newInstance())
+            openFragment(ListShopFragment.newInstance())
         }
         clickGift()
         clickSale()
@@ -96,4 +93,5 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
 }

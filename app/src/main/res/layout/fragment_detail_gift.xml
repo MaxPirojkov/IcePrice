@@ -47,15 +47,15 @@
                 android:id="@+id/nameShop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:layout_marginEnd="@dimen/indent_10"
                 android:layout_marginBottom="8dp"
-                tools:text="@tools:sample/lorem"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/picShopDetail"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="20dp"/>
+                tools:text="@tools:sample/lorem" />
 
 
             <androidx.cardview.widget.CardView
@@ -221,8 +221,7 @@
                         app:layout_constraintBottom_toBottomOf="@id/iconPhone"
                         app:layout_constraintStart_toEndOf="@id/iconPhone"
                         app:layout_constraintTop_toTopOf="@id/iconPhone"
-                        tools:text="@tools:sample/lorem"
-                        />
+                        tools:text="@tools:sample/lorem" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -253,4 +252,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+        <LinearLayout
+            android:id="@+id/backToListGift"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/indent_10"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/nameTopDetails"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/nameTopDetails">
+
+            <ImageView
+                android:id="@+id/backGift"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:background="@drawable/ic_but_back" />
+
+            <TextView
+                android:id="@+id/backButText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/button_title_back"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

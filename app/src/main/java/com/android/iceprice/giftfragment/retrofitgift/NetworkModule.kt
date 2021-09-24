@@ -1,4 +1,4 @@
-import com.android.iceprice.giftfragment.ApiFactoryGift
+import com.android.iceprice.ApiFactory
 import java.security.cert.X509Certificate
 import java.util.concurrent.TimeUnit
 import javax.net.ssl.SSLContext
@@ -67,7 +67,7 @@ object NetworkModuleGift {
     }
 
     @ExperimentalSerializationApi
-    val giftsApi: ApiFactoryGift = retrofit.create()
+    val giftsApi: ApiFactory = retrofit.create()
 }
 
 

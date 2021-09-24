@@ -1,7 +1,6 @@
 package com.android.iceprice.promocodefragment.retrofitpromocode
 
-import com.android.iceprice.giftfragment.ApiFactoryEvent
-import com.android.iceprice.promocodefragment.ApiFactoryPromocodes
+import com.android.iceprice.ApiFactory
 import java.security.cert.X509Certificate
 import java.util.concurrent.TimeUnit
 import javax.net.ssl.SSLContext
@@ -70,5 +69,5 @@ object NetworkModulePromocode {
     }
 
     @ExperimentalSerializationApi
-    val promoApi: ApiFactoryPromocodes = retrofit.create()
+    val promoApi: ApiFactory = retrofit.create()
 }

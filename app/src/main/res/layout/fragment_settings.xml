@@ -16,6 +16,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:id="@+id/backToList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/indent_10"
+        app:layout_constraintBottom_toBottomOf="@id/logoSettings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/logoSettings">
+
+        <ImageView
+            android:id="@+id/backEvent"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:background="@drawable/back_black" />
+
+        <TextView
+            android:id="@+id/backButText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_title_back"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/logoSettings"
         android:layout_width="wrap_content"

@@ -27,6 +27,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/settingsButtonPromocodes"
         android:layout_width="22dp"
         android:layout_height="22dp"
         android:layout_marginEnd="20dp"

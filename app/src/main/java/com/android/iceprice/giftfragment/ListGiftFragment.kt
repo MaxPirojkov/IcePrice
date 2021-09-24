@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.iceprice.R
+import com.android.iceprice.SettingsFragment
 import com.android.iceprice.giftfragment.model.GiftItem
 
 class ListGiftFragment : Fragment() {
@@ -16,6 +18,7 @@ class ListGiftFragment : Fragment() {
     private var list: List<GiftItem> = emptyList()
     private var adapter: PreviewGiftAdapter? = null
     private val viewModel = ListGiftViewModel()
+    private var butSetting: ImageView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +46,14 @@ class ListGiftFragment : Fragment() {
             val count = view.findViewById<TextView>(R.id.countDiscountNumbShop)
             count.setText("${list.size}")
         })
-
+        butSetting = view.findViewById(R.id.settingsButtonGift)
+        butSetting?.setOnClickListener{
+            requireActivity().supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.content, SettingsFragment())
+                .addToBackStack(null)
+                .commit()
+        }
     }
 
     private fun onItemClick(position: Int) {
