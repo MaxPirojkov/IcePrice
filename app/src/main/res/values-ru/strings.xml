@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">IcePrice</string>
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
-    <string name="title_shop" translatable="false">Магазин:</string>
+    <string name="title_shop">Магазин:</string>
     <string name="title_sale" translatable="false">Скидки</string>
     <string name="city_moscow" translatable="false">Москва</string>
     <string name="title_promocodes" translatable="false">Промокоды</string>

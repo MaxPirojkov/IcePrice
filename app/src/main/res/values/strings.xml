@@ -21,25 +21,9 @@
     <string name="title_location">РАСПОЛОЖЕНИЕ</string>
     <string name="rus_lang">Русский</string>
     <string name="eng_lang">English</string>
-
-    <string-array name="country">
-        <item>Россия</item>
-        <item>Казахстан</item>
-        <item>Кыргызстан</item>
-    </string-array>
-
-    <string-array name="countryRussia">
-        <item>Москва</item>
-        <item>Санкт-Петербург</item>
-    </string-array>
-
-    <string-array name="countryKazahstan">
-        <item>Нур-Султан</item>
-        <item>Алматы</item>
-    </string-array>
-
-    <string-array name="countryKirgizstan">
-        <item>Бишкек</item>
-    </string-array>
-
+    <string name="repeat" translatable="false">Повторить</string>
+    <string name="no_connection" translatable="false">Нет соединения</string>
+    <string name="internet_error" translatable="false">Пожалуйста, проверьте подключение к интернету</string>
+    <string name="your_discount_here" translatable="false">Ваша скидка здесь: </string>
+    <string name="open_link" translatable="false">Открыть сайт</string>
 </resources>
