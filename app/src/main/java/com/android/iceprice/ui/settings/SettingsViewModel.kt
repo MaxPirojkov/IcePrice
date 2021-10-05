@@ -3,11 +3,17 @@ package com.android.iceprice.ui.settings
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.android.iceprice.SingleAction
 import com.android.iceprice.UserLocalInfo
+import com.android.iceprice.network.Result
+import com.android.iceprice.network.api.NetworkModule
 import com.android.iceprice.network.model.City
 import com.android.iceprice.network.model.Country
 import com.chibatching.kotpref.bulk
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 class SettingsViewModel : ViewModel() {
@@ -31,68 +37,146 @@ class SettingsViewModel : ViewModel() {
     private val _saveCity = MutableLiveData<SingleAction<Unit>>()
     val saveCity: LiveData<SingleAction<Unit>> = _saveCity
 
+    private val _secondLanguage = MutableLiveData<String>()
+    val secondLanguage: LiveData<String> = _secondLanguage
+
     private var currentCountry: Int = UserLocalInfo.country
     private var currentCountryName: String = UserLocalInfo.countryName
     private var currentCitySlug: String = UserLocalInfo.citySlug
 
+    private val countriesMap = HashMap<Int, List<City>>()
+
     init {
         getCountries()
         getCities(UserLocalInfo.country)
+        _secondLanguage.value = getSecondLanguageName()
     }
 
-    fun onCountryClick(position: Int) {
-        Timber.e("onCountryClick position=$position")
-        val country = countryItems[position]
-        currentCountry = country.code
-        currentCountryName = country.name
-        getCities(country.code)
-    }
-
-    fun onCityClick(position: Int) {
-        Timber.e("onCityClick position=$position")
-        val cityItem = cityItems[position]
+    fun onChangeLocale(){
+        val index = _citySelection.value ?: 0
+        val cityItem = cityItems[if (index > 0) index else 0]
         UserLocalInfo.bulk {
             countryName = currentCountryName
             country = currentCountry
             citySlug = cityItem.slug
             cityName = cityItem.name
         }
-        _saveCity.postValue(SingleAction(Unit))
+    }
+
+    fun onCountryClick(position: Int) {
+        if (countryItems.isNotEmpty()) {
+            val country = countryItems[position]
+            currentCountry = country.code
+            currentCountryName = country.name
+            getCities(country.code)
+            _secondLanguage.value = getSecondLanguageName()
+        }
+    }
+
+    fun onCityClick(position: Int) {
+        if (cityItems.isNotEmpty()) {
+            val cityItem = cityItems[position]
+            UserLocalInfo.bulk {
+                countryName = currentCountryName
+                country = currentCountry
+                citySlug = cityItem.slug
+                cityName = cityItem.name
+            }
+            _saveCity.postValue(SingleAction(Unit))
+        }
+    }
+
+    fun isCityChanged(): Boolean {
+        val index = _citySelection.value ?: 0
+        val city = cityItems[if (index > 0) index else 0]
+        return if (UserLocalInfo.citySlug != city.slug) {
+            UserLocalInfo.bulk {
+                countryName = currentCountryName
+                country = currentCountry
+                citySlug = city.slug
+                cityName = city.name
+            }
+            true
+        } else {
+            false
+        }
+    }
+
+    fun getSecondLocale() = when (currentCountry) {
+        1 -> "kk"
+        2 -> "ky"
+        else -> "en"
+    }
+
+    private fun getSecondLanguageName() = when (currentCountry) {
+        1 -> "Қазақ"
+        2 -> "Кыргыз"
+        else -> "English"
     }
 
     private fun getCountries() {
-        //todo make request
-        //start need change
-        val list = listOf<Country>(
-            Country("1", "Россия", "Russia", 0),
-            Country("2", "Казахстан", "Kazahstan", 1),
-            Country("1", "Кыргызстан", "Kyrgyzstan", 2)
-        )
-        //end
-        _countries.value = list.map { it.name }
-        countryItems = list
-        _countrySelection.value = countryItems.indexOfFirst { it.code == currentCountry }
+        viewModelScope.launch {
+            val result = try {
+                requestCountries()
+            } catch (e: Exception) {
+                Result.Error(e)
+            }
+
+            when (result) {
+                is Result.Success<List<Country>> -> {
+                    _countries.value = result.data.map { it.name }
+                    countryItems = result.data
+                    _countrySelection.value =
+                        countryItems.indexOfFirst { it.code == currentCountry }
+                }
+                is Result.Error -> Timber.e("error ${result.exception}")
+            }
+        }
     }
 
     private fun getCities(code: Int) {
-        //todo make request
-        //start need change
-        val list =
-            if (code == 0) {
-                listOf<City>(
-                    City("1", "Москва", "Moscow", 1, "moscow"),
-                    City("2", "Санкт-Петербург", "Saint-Petersburg", 2, "spb"),
-                )
-            } else {
-                listOf<City>(
-                    City("1", "Москва2", "Moscow2", 1, "moscow"),
-                    City("2", "Санкт-Петербург2", "Saint-Petersburg2", 2, "spb")
-                )
+        if (countriesMap.isEmpty()) {
+            viewModelScope.launch {
+                val result = try {
+                    requestCities()
+                } catch (e: Exception) {
+                    Result.Error(e)
+                }
+                when (result) {
+                    is Result.Success<List<City>> -> {
+                        result.data.forEach {
+                            val cities: MutableList<City> =
+                                countriesMap[it.country]?.toMutableList() ?: mutableListOf()
+                            cities.add(it)
+                            countriesMap[it.country] = cities
+                        }
+                        updateCities(code, true)
+
+                    }
+                    is Result.Error -> Timber.e("error ${result.exception}")
+                }
             }
-        //end
-        _cities.value = list.map { it.name }
-        cityItems = list
-        _citySelection.value = cityItems.indexOfFirst { it.slug == currentCitySlug }
+        } else {
+            updateCities(code)
+        }
+    }
+
+    private fun updateCities(code: Int, firstChoice: Boolean = false) {
+        _cities.value = countriesMap[code]?.map { it.name } ?: emptyList()
+        cityItems = countriesMap[code] ?: emptyList()
+        _citySelection.value = cityItems.indexOfFirst { it.slug == currentCitySlug && firstChoice }
+    }
+
+    private suspend fun requestCountries(): Result.Success<List<Country>> {
+        return withContext(Dispatchers.IO) {
+            Result.Success(NetworkModule.api.getCountries())
+        }
+    }
+
+    private suspend fun requestCities(): Result.Success<List<City>> {
+        return withContext(Dispatchers.IO) {
+            Result.Success(NetworkModule.api.getCities())
+        }
     }
 
 }

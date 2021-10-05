@@ -41,6 +41,7 @@ class ListViewModel : ViewModel() {
         cityName = UserLocalInfo.cityName
         _cityChanges.value = cityName
     }
+
     fun loadItems(tab: ListFragment.Tab) {
         this.tab = tab
         viewModelScope.launch {
@@ -58,7 +59,6 @@ class ListViewModel : ViewModel() {
                 }
                 is Result.Error -> _state.failure(result.exception)
             }
-
         }
     }
 

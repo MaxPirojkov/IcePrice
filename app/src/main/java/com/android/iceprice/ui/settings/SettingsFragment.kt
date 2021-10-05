@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.RadioButton
 import android.widget.Spinner
@@ -24,20 +25,27 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
     private val viewModel = SettingsViewModel()
     private var cityAdapter: ArrayAdapter<String>? = null
     private var countryAdapter: ArrayAdapter<String>? = null
+    private var buttonSecond: Button? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val backButton: LinearLayout = view.findViewById(R.id.backToList)
-        backButton.setOnClickListener { navigateBack() }
+        backButton.setOnClickListener {
+            setFragmentResult(
+                REQUEST_CHANGE_CITY,
+                bundleOf(KEY_CITY_CHANGED to viewModel.isCityChanged())
+            )
+            navigateBack()
+        }
 
         val buttonRu = view.findViewById<RadioButton>(R.id.switchBut1)
         buttonRu.setOnClickListener { setLocale("ru") }
-        val buttonEn = view.findViewById<RadioButton>(R.id.switchBut2)
-        buttonEn.setOnClickListener { setLocale("en") }
-
-        if(UserLocalInfo.language == "en") {
-            buttonEn.isChecked = true
+        buttonSecond = view.findViewById<RadioButton>(R.id.switchBut2).apply {
+            setOnClickListener { setLocale(viewModel.getSecondLocale()) }
+            if (UserLocalInfo.language != "ru") {
+                isChecked = true
+            }
         }
 
         initCountrySpinner(view)
@@ -108,6 +116,14 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             observe(saveCity, ::handleChooseCity)
             observe(countrySelection, ::handleSelectionCountry)
             observe(citySelection, ::handleSelectionCity)
+            observe(secondLanguage, ::handleSecondLanguage)
+        }
+    }
+
+
+    private fun handleSecondLanguage(language: String?) {
+        language?.let {
+            buttonSecond?.text = language
         }
     }
 
@@ -133,11 +149,6 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
     private fun handleCountries(countries: List<String>?) {
         spinnerCountry?.onItemSelectedListener = null
         countries?.let { items ->
-//            countryAdapter?.let { adapter ->
-//                adapter.clear()
-//                adapter.addAll(items)
-//                adapter.notifyDataSetChanged()
-//            }
             countryAdapter = ArrayAdapter(
                 requireContext(),
                 R.layout.support_simple_spinner_dropdown_item,
@@ -151,11 +162,6 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
     private fun handleCities(cities: List<String>?) {
         spinnerCity?.onItemSelectedListener = null
         cities?.let { items ->
-//            cityAdapter?.let { adapter ->
-//                adapter.clear()
-//                adapter.addAll(items)
-//                adapter.notifyDataSetChanged()
-//            }
             cityAdapter = ArrayAdapter(
                 requireContext(),
                 R.layout.support_simple_spinner_dropdown_item,
@@ -167,6 +173,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
     }
 
     private fun setLocale(languageName: String) {
+        viewModel.onChangeLocale()
         UserLocalInfo.language = languageName
         activity?.viewModelStore?.clear()
         ActivityCompat.recreate(requireActivity())

@@ -1,5 +1,7 @@
 package com.android.iceprice.network.api
 
+import com.android.iceprice.network.model.City
+import com.android.iceprice.network.model.Country
 import com.android.iceprice.network.model.Event
 import com.android.iceprice.network.model.Gift
 import com.android.iceprice.network.model.Promocode
@@ -20,5 +22,11 @@ interface AppApi {
 
     @GET("api/{city}/events.json")
     suspend fun getEvents(@Path("city") city: String): List<Event>
+
+    @GET("api/cities.json")
+    suspend fun getCities(): List<City>
+
+    @GET("api/countries.json")
+    suspend fun getCountries(): List<Country>
 
 }

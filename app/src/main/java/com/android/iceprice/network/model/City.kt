@@ -7,5 +7,6 @@ class City(
     @SerializedName("name") val name: String,
     @SerializedName("name_alt") val nameAlt: String,
     @SerializedName("code") val code: Int,
-    @SerializedName("slug") val slug: String
+    @SerializedName("slug") val slug: String,
+    @SerializedName("country") val country: Int,
 )
