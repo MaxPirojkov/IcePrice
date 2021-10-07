@@ -40,6 +40,9 @@ class SettingsViewModel : ViewModel() {
     private val _secondLanguage = MutableLiveData<String>()
     val secondLanguage: LiveData<String> = _secondLanguage
 
+    private val _updateLanguage = MutableLiveData<String>()
+    val updateLanguage: LiveData<String> = _updateLanguage
+
     private var currentCountry: Int = UserLocalInfo.country
     private var currentCountryName: String = UserLocalInfo.countryName
     private var currentCitySlug: String = UserLocalInfo.citySlug
@@ -70,6 +73,9 @@ class SettingsViewModel : ViewModel() {
             currentCountryName = country.name
             getCities(country.code)
             _secondLanguage.value = getSecondLanguageName()
+            if(UserLocalInfo.language != "ru") {
+                _updateLanguage.value = "ru"
+            }
         }
     }
 

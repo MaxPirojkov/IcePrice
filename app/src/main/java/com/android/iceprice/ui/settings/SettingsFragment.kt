@@ -25,7 +25,8 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
     private val viewModel = SettingsViewModel()
     private var cityAdapter: ArrayAdapter<String>? = null
     private var countryAdapter: ArrayAdapter<String>? = null
-    private var buttonSecond: Button? = null
+    private var buttonSecond: RadioButton? = null
+    private var buttonRu: RadioButton? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -39,8 +40,9 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             navigateBack()
         }
 
-        val buttonRu = view.findViewById<RadioButton>(R.id.switchBut1)
-        buttonRu.setOnClickListener { setLocale("ru") }
+        buttonRu = view.findViewById<RadioButton>(R.id.switchBut1).apply {
+            setOnClickListener { setLocale("ru") }
+        }
         buttonSecond = view.findViewById<RadioButton>(R.id.switchBut2).apply {
             setOnClickListener { setLocale(viewModel.getSecondLocale()) }
             if (UserLocalInfo.language != "ru") {
@@ -117,6 +119,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             observe(countrySelection, ::handleSelectionCountry)
             observe(citySelection, ::handleSelectionCity)
             observe(secondLanguage, ::handleSecondLanguage)
+            observe(updateLanguage, ::handleUpdateLocale)
         }
     }
 
@@ -124,6 +127,13 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
     private fun handleSecondLanguage(language: String?) {
         language?.let {
             buttonSecond?.text = language
+        }
+    }
+
+    private fun handleUpdateLocale(locale: String?) {
+        locale?.let {
+            setLocale(it)
+            buttonRu?.isChecked = true
         }
     }
 
