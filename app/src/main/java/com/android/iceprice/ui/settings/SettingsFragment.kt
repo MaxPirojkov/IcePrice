@@ -1,13 +1,15 @@
 package com.android.iceprice.ui.settings
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.RadioButton
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -27,6 +29,9 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
     private var countryAdapter: ArrayAdapter<String>? = null
     private var buttonSecond: RadioButton? = null
     private var buttonRu: RadioButton? = null
+    private var userAgreement: TextView? = null
+    private var privacyPolicy: TextView? = null
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -38,6 +43,14 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
                 bundleOf(KEY_CITY_CHANGED to viewModel.isCityChanged())
             )
             navigateBack()
+        }
+
+        userAgreement = view.findViewById<TextView>(R.id.titleUserAgree).apply {
+            setOnClickListener { openUserAgreement() }
+        }
+
+        privacyPolicy = view.findViewById<TextView>(R.id.titlePrivacyPolice).apply {
+            setOnClickListener { openPrivacy() }
         }
 
         buttonRu = view.findViewById<RadioButton>(R.id.switchBut1).apply {
@@ -73,7 +86,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
                 parent: AdapterView<*>?,
                 view: View?,
                 position: Int,
-                id: Long
+                id: Long,
             ) {
                 viewModel.onCountryClick(position)
             }
@@ -89,7 +102,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
                 parent: AdapterView<*>?,
                 view: View?,
                 position: Int,
-                id: Long
+                id: Long,
             ) {
                 viewModel.onCityClick(position)
             }
@@ -192,6 +205,17 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
     private fun navigateBack() {
         requireActivity().supportFragmentManager
             .popBackStack()
+    }
+
+    private fun openUserAgreement() {
+        startActivity(Intent(Intent.ACTION_VIEW,
+            Uri.parse("http://iceprice.app/user_agreement.html")))
+    }
+
+    private fun openPrivacy() {
+        startActivity(Intent(Intent.ACTION_VIEW,
+            Uri.parse("http://iceprice.app/privacy_policy.html")))
+
     }
 
     companion object {

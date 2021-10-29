@@ -2,11 +2,11 @@
     <string name="app_name" translatable="false">IcePrice</string>
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="title_shop">Shop:</string>
-    <string name="title_sale" translatable="false">Discounts</string>
+    <string name="title_sale" translatable="false">Discounts:</string>
     <string name="city_moscow" translatable="false">Moscow</string>
-    <string name="title_promocodes" translatable="false">Promocodes</string>
-    <string name="title_gifts">Gifts</string>
-    <string name="tittle_events">Events</string>
+    <string name="title_promocodes" translatable="false">Promocodes:</string>
+    <string name="title_gifts">Gifts:</string>
+    <string name="tittle_events">Events:</string>
     <string name="text_button_qr_detail">Get discount</string>
     <string name="detail_condions">Conditions</string>
     <string name="title_top_details" translatable="false">Details</string>
@@ -21,5 +21,13 @@
     <string name="title_location">LOCATION</string>
     <string name="rus_lang">Русский</string>
     <string name="eng_lang">English</string>
+    <string name="information">INFORMATION</string>
+    <string name="repeat" translatable="false">Repeat</string>
+    <string name="no_connection" translatable="false">No connection</string>
+    <string name="internet_error" translatable="false">Please check your internet connection</string>
+    <string name="your_discount_here">Your discount is here:</string>
+    <string name="open_link">Open site</string>
+    <string name="user_agr">Terms of use</string>
+    <string name="text_privacy_policy">Privacy Policy</string>
 
 </resources>

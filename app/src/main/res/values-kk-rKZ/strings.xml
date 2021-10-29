@@ -3,10 +3,10 @@
     <string name="app_name">IcePrice</string>
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="title_shop">Дүкен:</string>
-    <string name="title_sale">Жеңілдіктер</string>
-    <string name="title_promocodes">Промо -кодтар</string>
-    <string name="title_gifts">Ұсыну</string>
-    <string name="tittle_events">Белсенділік</string>
+    <string name="title_sale">Жеңілдіктер:</string>
+    <string name="title_promocodes">Промо -кодтар:</string>
+    <string name="title_gifts">Ұсыну:</string>
+    <string name="tittle_events">Белсенділік:</string>
     <string name="text_button_qr_detail">Жеңілдік алыңыз</string>
     <string name="detail_condions">Шарттар</string>
     <string name="title_top_details">Толығырақ</string>
@@ -21,4 +21,12 @@
     <string name="rus_lang">Орыс</string>
     <string name="eng_lang">Ағылшын</string>
     <string name="build_number" translatable="false">1.0.0</string>
+    <string name="information">АҚПАРАТ</string>
+    <string name="no_connection">Байланыс жоқ</string>
+    <string name="internet_error">Интернет байланысын тексеріңіз</string>
+    <string name="your_discount_here">Сіздің жеңілдік мына жерде:</string>
+    <string name="open_link">Сайтты ашу</string>
+    <string name="repeat">Қайталау</string>
+    <string name="user_agr">Қолдану ережелері</string>
+    <string name="text_privacy_policy">Құпиялылық саясаты</string>
 </resources>

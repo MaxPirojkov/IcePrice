@@ -21,7 +21,7 @@
     <LinearLayout
         android:id="@+id/switcherMain"
         android:layout_width="0dp"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="20dp"
         android:background="#80D8D9D6"
         android:orientation="horizontal"
@@ -31,36 +31,36 @@
 
         <ImageView
             android:id="@+id/sale"
-            android:layout_width="14dp"
-            android:layout_height="14dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:src="@drawable/ic_discount" />
 
         <ImageView
             android:id="@+id/gifts"
-            android:layout_width="14dp"
-            android:layout_height="14dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:src="@drawable/ic_gifts" />
 
         <ImageView
             android:id="@+id/events"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:src="@drawable/ic_events" />
 
         <ImageView
             android:id="@+id/promocodes"
-            android:layout_width="14dp"
-            android:layout_height="14dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:src="@drawable/ic_promocodes" />

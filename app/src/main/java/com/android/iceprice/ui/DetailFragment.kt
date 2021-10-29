@@ -1,7 +1,9 @@
 package com.android.iceprice.ui
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.text.Spanned
 import android.text.method.LinkMovementMethod
@@ -20,12 +22,14 @@ import com.google.zxing.qrcode.QRCodeWriter
 import com.skydoves.balloon.Balloon
 import com.skydoves.balloon.BalloonAnimation
 import com.skydoves.balloon.showAlignTop
+import java.util.Locale
 import kotlinx.android.synthetic.main.fragment_detail.textWebsite
 
 class DetailFragment : Fragment(R.layout.fragment_detail) {
 
     private var detailItem: DetailItem? = null
     private var backButton: LinearLayout? = null
+    private var addressButton: TextView? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,13 +84,26 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
                 textWebsite.text = generateLink(it.website)
                 textWebsite.movementMethod = LinkMovementMethod.getInstance()
             }
-
         }
         backButton = view.findViewById(R.id.backToListShop)
         backButton?.setOnClickListener {
             requireActivity().supportFragmentManager
                 .popBackStack()
         }
+
+        addressButton = view.findViewById(R.id.textAddress)
+        addressButton?.setOnClickListener {
+            val addrss = (addressButton!!.text).toString()
+            if (addrss.isNotEmpty()) openMap(addrss)
+        }
+
+
+    }
+
+    private fun openMap(address: String) {
+        val uri = Uri.parse("geo:0,0?q=$address")
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        startActivity(intent)
     }
 
     private fun generateLink(website: String?): Spanned {

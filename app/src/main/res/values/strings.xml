@@ -3,14 +3,14 @@
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="title_shop">Магазин:</string>
     <string name="title_sale">Скидки</string>
-    <string name="city_moscow" translatable="false">Москва</string>
-    <string name="title_promocodes">Промокоды</string>
-    <string name="title_gifts">Подарки</string>
-    <string name="tittle_events">Мероприятия</string>
+    <string name="city_moscow">Москва</string>
+    <string name="title_promocodes">Промокоды:</string>
+    <string name="title_gifts">Подарки:</string>
+    <string name="tittle_events">Мероприятия:</string>
     <string name="text_button_qr_detail">Получить скидку</string>
     <string name="detail_condions">Условия</string>
     <string name="title_top_details">Подробнее</string>
-    <string name="button_title_back">Назад</string>
+    <string name="button_title_back" translatable="false">Назад</string>
     <string name="settings_title">Настройки</string>
     <string name="language_title">ЯЗЫК</string>
     <string name="title_build">Билд</string>
@@ -21,9 +21,12 @@
     <string name="title_location">РАСПОЛОЖЕНИЕ</string>
     <string name="rus_lang">Русский</string>
     <string name="eng_lang">English</string>
-    <string name="repeat" translatable="false">Повторить</string>
-    <string name="no_connection" translatable="false">Нет соединения</string>
-    <string name="internet_error" translatable="false">Пожалуйста, проверьте подключение к интернету</string>
-    <string name="your_discount_here" translatable="false">Ваша скидка здесь: </string>
-    <string name="open_link" translatable="false">Открыть сайт</string>
+    <string name="repeat">Повторить</string>
+    <string name="no_connection">Нет соединения</string>
+    <string name="internet_error">Пожалуйста, проверьте подключение к интернету</string>
+    <string name="your_discount_here">Ваша скидка здесь: </string>
+    <string name="open_link">Открыть сайт</string>
+    <string name="information">ИНФОРМАЦИЯ</string>
+    <string name="user_agr">Пользовательское соглашение</string>
+    <string name="text_privacy_policy">Политика конфиденциальности</string>
 </resources>

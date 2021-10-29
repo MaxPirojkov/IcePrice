@@ -15,10 +15,18 @@
     <string name="detail_condions">Шарттары</string>
     <string name="text_button_qr_detail">Арзандатууну алуу</string>
     <string name="tittle_events">Иш-чаралар</string>
-    <string name="title_gifts">Белектер</string>
-    <string name="title_promocodes">Сунуштоо коду</string>
+    <string name="title_gifts">Белектер:</string>
+    <string name="title_promocodes">Сунуштоо коду:</string>
     <string name="title_sale">Арзандатуулар</string>
     <string name="title_shop">Дүкөн:</string>
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="build_number" translatable="false">1.0.0</string>
+    <string name="information">МААЛЫМАТ</string>
+    <string name="no_connection">Байланыш жок</string>
+    <string name="internet_error">Интернет туташууңузду текшериңиз</string>
+    <string name="your_discount_here">Сиздин арзандатууңуз бул жерде:</string>
+    <string name="open_link">Ачык сайт</string>
+    <string name="repeat">Кайталоо</string>
+    <string name="user_agr">Пайдалануу шарттары</string>
+    <string name="text_privacy_policy">Купуялык саясаты</string>
 </resources>

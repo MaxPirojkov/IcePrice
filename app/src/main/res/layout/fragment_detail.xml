@@ -50,8 +50,10 @@
                 android:layout_marginBottom="8dp"
                 android:textColor="@color/white"
                 android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="@id/picShopDetail"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="30dp"
                 tools:text="@tools:sample/lorem" />
 
             <Button
@@ -297,6 +299,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
+            <TextView
+                android:id="@+id/backButText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/button_title_back"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                tools:layout_editor_absoluteX="26dp"
+                tools:layout_editor_absoluteY="26dp"
+                android:visibility="invisible"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
@@ -337,13 +350,6 @@
             android:layout_height="18dp"
             android:background="@drawable/ic_but_back" />
 
-        <TextView
-            android:id="@+id/backButText"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/button_title_back"
-            android:textColor="@color/white"
-            android:textSize="14sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
