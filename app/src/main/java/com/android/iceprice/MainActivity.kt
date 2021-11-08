@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Timber.e("locale -${Locale.getDefault()}")
         if (savedInstanceState == null) {
             openFragment(newInstance(ListFragment.Tab.SHOPS))
         }

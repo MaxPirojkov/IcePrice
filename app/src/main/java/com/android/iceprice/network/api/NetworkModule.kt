@@ -45,7 +45,13 @@ object NetworkModule {
 
         return OkHttpClient.Builder()
             .sslSocketFactory(sslSocketFactory, trustAllCerts[0] as X509TrustManager)
-            .hostnameVerifier { _, _ -> true }.build()
+            .hostnameVerifier { _, _ -> true }
+            .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
+            .readTimeout(TIME_OUT, TimeUnit.SECONDS)
+            .writeTimeout(TIME_OUT, TimeUnit.SECONDS)
+            .addInterceptor(loggingInterceptor)
+            .addNetworkInterceptor(loggingInterceptor)
+            .build()
     }
 
 
@@ -63,6 +69,7 @@ object NetworkModule {
 }
 
 private const val BASE_URL = "https://iceprice.app/"
+private const val TIME_OUT = 30L
 
 
 

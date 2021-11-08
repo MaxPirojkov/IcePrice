@@ -1,8 +1,10 @@
 package com.android.iceprice.network.model
 
+import com.android.iceprice.UserLocalInfo
 import com.android.iceprice.ui.DetailItem
 import com.android.iceprice.ui.Type
 import com.google.gson.annotations.SerializedName
+import java.util.Locale
 
 class Event(
     @SerializedName("title_alt") val title_alt: String? = null,
@@ -18,13 +20,26 @@ class Event(
     @SerializedName("address_eng") val address_eng: String? = null
 )
 
-fun Event.getItem() = DetailItem(
-    title = title,
-    shopName = shop,
-    image = image,
-    description = body,
-    address = address,
-    phone = phone,
-    website = website, //website?.fromHtml().toString()
-    type = Type.EVENT
-)
+fun Event.getItem() = if (UserLocalInfo.language == "en") {
+    DetailItem(
+        title = title_alt,
+        shopName = shop,
+        image = image,
+        description = body_alt,
+        address = address_eng,
+        phone = phone,
+        website = website,
+        type = Type.EVENT
+    )
+} else {
+    DetailItem(
+        title = title,
+        shopName = shop,
+        image = image,
+        description = body,
+        address = address,
+        phone = phone,
+        website = website,
+        type = Type.EVENT
+    )
+}

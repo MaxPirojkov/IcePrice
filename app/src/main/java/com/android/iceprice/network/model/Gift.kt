@@ -1,5 +1,6 @@
 package com.android.iceprice.network.model
 
+import com.android.iceprice.UserLocalInfo
 import com.android.iceprice.ui.DetailItem
 import com.android.iceprice.ui.Type
 import com.google.gson.annotations.SerializedName
@@ -18,13 +19,26 @@ class Gift(
     @SerializedName("address_eng") val address_eng: String? = null
 )
 
-fun Gift.getItem() = DetailItem(
-    title = title,
-    shopName = shop,
-    image = image,
-    description = body,
-    address = address,
-    phone = phone,
-    website = null,
-    type = Type.GIFT
-)
+fun Gift.getItem() = if (UserLocalInfo.language == "en") {
+    DetailItem(
+        title = title_alt,
+        shopName = shop,
+        image = image,
+        description = body_alt,
+        address = address_eng,
+        phone = phone,
+        website = null,
+        type = Type.GIFT
+    )
+} else {
+    DetailItem(
+        title = title,
+        shopName = shop,
+        image = image,
+        description = body,
+        address = address,
+        phone = phone,
+        website = null,
+        type = Type.GIFT
+    )
+}

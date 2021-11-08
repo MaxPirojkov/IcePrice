@@ -1,5 +1,6 @@
 package com.android.iceprice.network.model
 
+import com.android.iceprice.UserLocalInfo
 import com.android.iceprice.ui.DetailItem
 import com.android.iceprice.ui.DetailItemEng
 import com.android.iceprice.ui.Type
@@ -19,24 +20,26 @@ class Shop(
     @SerializedName("address_eng") val addressEng: String? = null
 )
 
-fun Shop.getItem() = DetailItem(
-    title = title,
-    shopName = shop,
-    image = image,
-    description = body,
-    address = address,
-    phone = phone,
-    website = null,
-    type = Type.SHOP
-)
-
-fun Shop.getItemEng() = DetailItemEng(
-    titleEng = titleEng,
-    shopName = shop,
-    image = image,
-    descriptionEng = bodyEng,
-    addressEng = addressEng,
-    phone = phone,
-    website = null,
-    type = Type.SHOP
-)
+fun Shop.getItem() = if (UserLocalInfo.language == "en") {
+    DetailItem(
+        title = titleEng,
+        shopName = shop,
+        image = image,
+        description = bodyEng,
+        address = addressEng,
+        phone = phone,
+        website = null,
+        type = Type.SHOP
+    )
+} else {
+    DetailItem(
+        title = title,
+        shopName = shop,
+        image = image,
+        description = body,
+        address = address,
+        phone = phone,
+        website = null,
+        type = Type.SHOP
+    )
+}

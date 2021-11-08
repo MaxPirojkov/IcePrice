@@ -55,14 +55,14 @@ class SettingsViewModel : ViewModel() {
         _secondLanguage.value = getSecondLanguageName()
     }
 
-    fun onChangeLocale(){
+    fun onChangeLocale() {
         val index = _citySelection.value ?: 0
         val cityItem = cityItems[if (index > 0) index else 0]
         UserLocalInfo.bulk {
             countryName = currentCountryName
             country = currentCountry
             citySlug = cityItem.slug
-            cityName = cityItem.name
+            cityName = cityItem.getCityName()
         }
     }
 
@@ -70,10 +70,10 @@ class SettingsViewModel : ViewModel() {
         if (countryItems.isNotEmpty()) {
             val country = countryItems[position]
             currentCountry = country.code
-            currentCountryName = country.name
+            currentCountryName = country.getCountryName()
             getCities(country.code)
             _secondLanguage.value = getSecondLanguageName()
-            if(UserLocalInfo.language != "ru") {
+            if (UserLocalInfo.language != "ru") {
                 _updateLanguage.value = "ru"
             }
         }
@@ -86,7 +86,7 @@ class SettingsViewModel : ViewModel() {
                 countryName = currentCountryName
                 country = currentCountry
                 citySlug = cityItem.slug
-                cityName = cityItem.name
+                cityName = cityItem.getCityName()
             }
             _saveCity.postValue(SingleAction(Unit))
         }
@@ -100,7 +100,7 @@ class SettingsViewModel : ViewModel() {
                 countryName = currentCountryName
                 country = currentCountry
                 citySlug = city.slug
-                cityName = city.name
+                cityName = city.getCityName()
             }
             true
         } else {
@@ -130,7 +130,7 @@ class SettingsViewModel : ViewModel() {
 
             when (result) {
                 is Result.Success<List<Country>> -> {
-                    _countries.value = result.data.map { it.name }
+                    _countries.value = result.data.map { it.getCountryName() }
                     countryItems = result.data
                     _countrySelection.value =
                         countryItems.indexOfFirst { it.code == currentCountry }
@@ -168,7 +168,7 @@ class SettingsViewModel : ViewModel() {
     }
 
     private fun updateCities(code: Int, firstChoice: Boolean = false) {
-        _cities.value = countriesMap[code]?.map { it.name } ?: emptyList()
+        _cities.value = countriesMap[code]?.map { it.getCityName() } ?: emptyList()
         cityItems = countriesMap[code] ?: emptyList()
         _citySelection.value = cityItems.indexOfFirst { it.slug == currentCitySlug && firstChoice }
     }

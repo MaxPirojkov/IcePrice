@@ -1,5 +1,6 @@
 package com.android.iceprice.network.model
 
+import com.android.iceprice.UserLocalInfo
 import com.android.iceprice.extensions.fromHtml
 import com.android.iceprice.ui.DetailItem
 import com.android.iceprice.ui.Type
@@ -19,13 +20,26 @@ class Promocode(
     @SerializedName("address_eng") val address_eng: String? = null
 )
 
-fun Promocode.getItem() = DetailItem(
-    title = title,
-    shopName = shop,
-    image = image,
-    description = body,
-    address = null,
-    phone = null,
-    website = website, //website?.fromHtml().toString()
-    type = Type.PROMOCODE
-)
+fun Promocode.getItem() = if (UserLocalInfo.language == "en") {
+    DetailItem(
+        title = title_alt,
+        shopName = shop,
+        image = image,
+        description = body_alt,
+        address = null,
+        phone = null,
+        website = website,
+        type = Type.PROMOCODE
+    )
+} else {
+    DetailItem(
+        title = title,
+        shopName = shop,
+        image = image,
+        description = body,
+        address = null,
+        phone = null,
+        website = website,
+        type = Type.PROMOCODE
+    )
+}
