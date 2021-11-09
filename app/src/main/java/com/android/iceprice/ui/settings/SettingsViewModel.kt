@@ -95,7 +95,7 @@ class SettingsViewModel : ViewModel() {
     fun isCityChanged(): Boolean {
         val index = _citySelection.value ?: 0
         val city = cityItems[if (index > 0) index else 0]
-        return if (UserLocalInfo.citySlug != city.slug) {
+        return if (UserLocalInfo.citySlug != city.slug || UserLocalInfo.cityName != city.getCityName()) {
             UserLocalInfo.bulk {
                 countryName = currentCountryName
                 country = currentCountry
