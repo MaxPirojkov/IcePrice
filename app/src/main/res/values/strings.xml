@@ -10,7 +10,7 @@
     <string name="text_button_qr_detail">Получить скидку</string>
     <string name="detail_condions">Условия</string>
     <string name="title_top_details">Подробнее</string>
-    <string name="button_title_back" translatable="false">Назад</string>
+    <string name="button_title_back">Назад</string>
     <string name="settings_title">Настройки</string>
     <string name="language_title">ЯЗЫК</string>
     <string name="title_build">Билд</string>
