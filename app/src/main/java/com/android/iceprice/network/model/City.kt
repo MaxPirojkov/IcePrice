@@ -11,5 +11,5 @@ class City(
     @SerializedName("slug") val slug: String,
     @SerializedName("country") val country: Int,
 ) {
-    fun getCityName() = if (UserLocalInfo.language == "en") name else nameAlt
+    fun getCityName() = if (UserLocalInfo.language == "en") nameAlt else name
 }
